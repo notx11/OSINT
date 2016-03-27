@@ -29,7 +29,7 @@ def main():
         response = requests.get(url)
 
         if response.status_code == 200:
-                print "[*] user exists here: " + url
+                print "[*] User exists here: " + url
         else:
                 print "[!] User NOT FOUND here: " + url
 

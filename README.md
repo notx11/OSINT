@@ -2,7 +2,7 @@ Osint User Check
 ===========
 
 ````
-$ ./usercheck -u username
+$ ./usercheck.py -u username
 ```
 Will check specified social media platforms for profiles provisioned using a given pseudonym. 
 

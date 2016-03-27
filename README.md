@@ -1,1 +1,16 @@
-# osint
+Osint User Check
+===========
+
+````
+$ ./usercheck -u username
+```
+Will check specified social media platforms for profiles provisioned using a given pseudonym. 
+
+
+```
+root@deadbadger:~# ./osint_lookup.py -u notx11
+[!] User NOT FOUND here: https://www.instagram.com/notx11
+[*] user exists here: https://twitter.com/notx11
+[!] User NOT FOUND here: http://pastebin.com/u/notx11
+[!] User NOT FOUND here: https://www.reddit.com/user/notx11
+```

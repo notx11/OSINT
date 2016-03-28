@@ -20,7 +20,7 @@ def main():
             usage()
             sys.exit(0)
 
-    websites = ["https://www.instagram.com/", "https://twitter.com/", "http://pastebin.com/u/", "https://www.reddit.com/user/", "https://www.github.com/"]
+    websites = ["https://www.instagram.com/", "https://twitter.com/", "http://pastebin.com/u/", "https://www.reddit.com/user/", "https://github.com/"]
     username = userid
 
     for website in websites:

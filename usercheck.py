@@ -26,8 +26,7 @@ def main():
     for website in websites:
         url = website + username
 
-        response = requests.get(url)
-
+        response = requests.get(url, allow_redirects=False)
         if response.status_code == 200:
                 print "[*] User exists here: " + url
         else:

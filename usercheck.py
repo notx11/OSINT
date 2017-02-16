@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#!/usr/bin/env python
 
 import requests, argparse, sys
 
@@ -14,6 +14,14 @@ def debug_api():
     requests_log.setLevel(logging.DEBUG)
     requests_log.propagate = True
 
+WEBSITES = [
+    "https://www.instagram.com/{}",
+    "https://twitter.com/{}",
+    "http://pastebin.com/u/{}",
+    "https://www.reddit.com/user/{}.json", # use .json for reddit to avoid rate limiting and stuff
+    "https://github.com/{}"
+]
+
 def main():
     # use argparse instead of getopt
     parser = argparse.ArgumentParser()
@@ -22,21 +30,19 @@ def main():
 
     args = parser.parse_args()
 
-    websites = ["https://www.instagram.com/", "https://twitter.com/", "http://pastebin.com/u/", "https://www.reddit.com/user/", "https://github.com/"]
     username = args.userid
 
     if args.debug:
         debug_api()
 
-    for website in websites:
-        url = website + username
+    session = requests.session()
+    session.headers['User-agent'] = 'uiuc-tsprivsec.usercheck:0.9'
 
-        # use .json for reddit to avoid rate limiting and stuff
-        if "reddit.com" in website:
-            url += ".json"
+    for website in WEBSITES:
+        url = website.format(username)
 
         # use custom user agent because reddit wants bots to use them
-        response = requests.get(url, allow_redirects=False, headers={'User-agent': 'uiuc-tsprivsec.usercheck:0.9'})
+        response = session.get(url, allow_redirects=False)
         if response.status_code == 200:
                 print "[*] User exists here: " + url
         else:

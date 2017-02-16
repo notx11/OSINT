@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 
 import requests, argparse, sys
-
-# for debug_api
 import logging
 import httplib as http_client
 
@@ -15,15 +13,14 @@ def debug_api():
     requests_log.propagate = True
 
 WEBSITES = [
-#    "https://www.instagram.com/{}",
+    "https://www.instagram.com/{}",
     "https://twitter.com/{}",
-#    "http://pastebin.com/u/{}",
-#    "https://www.reddit.com/user/{}.json", # use .json for reddit to avoid rate limiting and stuff
-#    "https://github.com/{}"
+    "http://pastebin.com/u/{}",
+    "https://www.reddit.com/user/{}.json", # use .json for reddit to avoid rate limiting and stuff
+    "https://github.com/{}"
 ]
 
 def main():
-    # use argparse instead of getopt
     parser = argparse.ArgumentParser()
     parser.add_argument("-u", "--userid", required=True, help="Social Media Handle")
     parser.add_argument("-d", "--debug", action="store_true", help="Prints Debug from API Call")

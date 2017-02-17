@@ -13,7 +13,7 @@ def debug_api():
     requests_log.propagate = True
 
 WEBSITES = [
-    "https://www.instagram.com/{}",
+    "https://www.instagram.com/{}/media/",
     "https://twitter.com/{}",
     "http://pastebin.com/u/{}",
     "https://www.reddit.com/user/{}.json", # use .json for reddit to avoid rate limiting and stuff

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from __future__ import print_function
-import requests, argparse, sys
+import requests, argparse
 import logging
 
 from sys import version_info

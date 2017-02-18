@@ -1,8 +1,14 @@
 #!/usr/bin/env python
 
+from __future__ import print_function
 import requests, argparse, sys
 import logging
-import httplib as http_client
+
+from sys import version_info
+if version_info[0] > 2:
+    import http.client as http_client  # Py3+ renames httplib
+else:
+    import httplib as http_client
 
 def debug_api():
     http_client.HTTPConnection.debuglevel = 1
@@ -41,9 +47,9 @@ def main():
         # use custom user agent because reddit wants bots to use them
         response = session.get(url, allow_redirects=False)
         if response.status_code == 200:
-                print "[*] User exists here: " + url
+                print("[*] User exists here: " + url)
         else:
-                print "[!] User NOT FOUND here: " + url
+                print("[!] User NOT FOUND here: " + url)
 
 if __name__ == '__main__':
     main()

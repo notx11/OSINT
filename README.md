@@ -1,11 +1,8 @@
-OSINT User Check
-===========
+# OSINT User Check
 
-````
 $ ./usercheck.py -u username
-```
-Will check specified social media platforms for profiles provisioned using a given pseudonym. 
 
+Specify a username with `-u` to check whether or not it exists on a platform
 
 ```
 root@deadbadger:~# ./usercheck.py -u notx11

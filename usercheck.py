@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-import argparse
 from __future__ import print_function
+import argparse
 import logging
 import requests
 
@@ -16,12 +16,11 @@ WEBSITES = [
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-u", "--userid", required=True, help="Social Media Handle")
-    parser.add_argument("-d", "--debug", action="store_true", help="Prints Debug from API Call")
     args = parser.parse_args()
 
     username = args.userid
     session = requests.session()
-    session.headers['User-agent'] = 'uiuc-tsprivsec.usercheck:0.9'
+    session.headers['User-agent'] = 'osint.usercheck:1.0'
 
     for website in WEBSITES:
         url = website.format(username)
